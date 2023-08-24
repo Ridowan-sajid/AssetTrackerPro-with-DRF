@@ -13,7 +13,7 @@ def validate_phone_number_length(value):
 def custom_image_name(instance,filename):
     timestamp=timezone.now().strftime("%Y%m%d%H%M%S")
     extension=os.path.splitext(filename)[1]
-    new_filename=instance.Name.replace(' ','_')+"_"+timestamp+extension
+    new_filename=instance.name.replace(' ','_')+"_"+timestamp+extension
     return os.path.join('images',new_filename)
 
 # Company model. With company code a company can track asset
@@ -38,7 +38,7 @@ class GadgetUser(models.Model):
     company=models.ForeignKey(Company, on_delete=models.CASCADE, editable=False)
 
     def __str__(self):
-        return self.Name
+        return self.name
 
 # We will track gadget which is given to the user through this model
 class Gadget(models.Model):
