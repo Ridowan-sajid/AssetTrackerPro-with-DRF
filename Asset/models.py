@@ -21,11 +21,6 @@ class Company(models.Model):
     company_code=models.CharField(max_length=20,unique=True)
     title = models.CharField(max_length=30)
 
-    # REQUIRED_FIELDS=[]
-    # USERNAME_FIELD="company_code"
-    # is_anonymous=False
-    # is_authenticated=True
-
     def __str__(self):
         return self.title
 

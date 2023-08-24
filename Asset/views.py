@@ -161,5 +161,19 @@ class GadgetDeleteUpdateRetrieve(GenericAPIView,DestroyModelMixin,UpdateModelMix
         else:
             return Response({'message': 'You are not authorized.'}, status=status.HTTP_403_FORBIDDEN)
 
+# To use this application a company first have to register their self with company title, and a secret
+# company_code which will be used for login. After register company can logged In by that company_code.
+# After logged In company can create as many user as the company wants. After that The company can
+# update, delete or retrieve any user from database. And after creating user the company can
+# assign one or multiple gadget with relevant information of that gadget to any user and company
+# can set a time for using that gadget. So, that company can see the checked out and return time.
+# Company can update, delete and retrieve any gadget info from database.
 
+# I used company based on models not based on user though I can create company based on user and can use
+# the django's default authentication but in my opinion it seems company and user are quite different.
+# And Company is being authenticated based on session
+# After logged In a session will be created for that company. If the company logged out session will be
+# destroyed.
+
+# I used postgreSQL for database. Because sqlite3 is not suitable or reliable for bigger project.
 
