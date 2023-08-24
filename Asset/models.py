@@ -40,6 +40,7 @@ class GadgetUser(models.Model):
     def __str__(self):
         return self.Name
 
+# We will track gadget which is given to the user through this model
 class Gadget(models.Model):
     gadget_name = models.CharField(max_length=30)
     type = models.CharField(max_length=30)
